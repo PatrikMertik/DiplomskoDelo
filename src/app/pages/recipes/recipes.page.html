@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar color = "primary">
+    <ion-title>CookApp</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="searchChanged($event)"></ion-searchbar>
+
+  <ion-list>
+    <ion-item button *ngFor="let result of (results | async)" [routerLink]="['/', 'recipes', result.id]">
+        {{result.title}}
+        {{result.id}}
+    </ion-item>  
+  </ion-list>
+
+  
+</ion-content>
